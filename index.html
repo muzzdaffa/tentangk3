@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TentangK3 – Keselamatan & Kesehatan Kerja</title>
+  <meta name="description" content="Situs edukasi dan kampanye tentang Keselamatan dan Kesehatan Kerja (K3)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1020; /* biru malam */
+      --card:#11162a;
+      --muted:#7f8fb3;
+      --brand:#2ad18b; /* hijau safety */
+      --accent:#ffb020; /* kuning peringatan */
+      --danger:#ff5b5b; /* merah hazard */
+      --text:#eaf0ff;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0a0f1e 0%, #0b1226 30%, #0c132b 100%);color:var(--text);font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1200px,92vw);margin-inline:auto}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,16,32,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:.3px}
+    .brand-badge{width:36px;height:36px;border-radius:12px;background:conic-gradient(from 220deg at 50% 50%, var(--brand), #22a06a 30%, #138657 60%, #0d5 100%);display:grid;place-items:center;box-shadow:var(--shadow)}
+    .brand-badge svg{filter:drop-shadow(0 4px 10px rgba(0,0,0,.4))}
+    .nav-links{display:flex;gap:20px;align-items:center}
+    .nav-links a{opacity:.9;padding:8px 12px;border-radius:10px}
+    .nav-links a:hover{background:rgba(255,255,255,.06)}
+    .cta{padding:10px 16px;border-radius:12px;background:linear-gradient(180deg,var(--brand),#1fc37f);color:#03160e;font-weight:700;box-shadow:0 8px 22px rgba(42,209,139,.25)}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden}
+    .hero .container{display:grid;grid-template-columns:1.2fr 1fr;gap:34px;align-items:center;padding:70px 0 34px}
+    .eyebrow{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+    h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:10px 0}
+    .lead{color:#c8d3ff;font-size:clamp(15px,2vw,18px)}
+    .hero-actions{margin-top:24px;display:flex;gap:14px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.1);display:inline-flex;gap:10px;align-items:center;transition:.25s ease;cursor:pointer}
+    .btn.primary{background:linear-gradient(180deg,var(--brand),#1fc37f);border-color:transparent;color:#062015;font-weight:700}
+    .btn.primary:hover{transform:translateY(-2px)}
+    .btn.ghost:hover{background:rgba(255,255,255,.06)}
+
+    .hero-visual{position:relative;isolation:isolate}
+    .orbit{position:absolute;inset:-60px -80px auto auto;opacity:.6;filter:blur(16px)}
+    .card-stack{display:grid;gap:16px}
+    .card{background:linear-gradient(180deg,#131a33,#0f1730);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px;font-size:18px}
+    .tag{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.06);font-size:12px;color:#c8d3ff}
+
+    /* RIBBON STATS */
+    .ribbon{margin:34px 0 10px;border-top:1px dashed rgba(255,255,255,.08);border-bottom:1px dashed rgba(255,255,255,.08);background:linear-gradient(90deg, rgba(42,209,139,.08), rgba(255,176,32,.08));}
+    .ribbon .container{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:16px 0}
+    .stat{display:flex;gap:10px;align-items:center}
+    .stat strong{font-size:22px}
+    .dot{width:10px;height:10px;border-radius:6px;background:var(--brand)}
+
+    /* FEATURES */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{background:linear-gradient(180deg,#121a31,#0e172d);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);position:relative}
+    .feature .icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(42,209,139,.1);margin-bottom:12px}
+    .feature h4{margin:10px 0 8px}
+    .feature p{color:#c8d3ff}
+
+    /* TIMELINE SECTION */
+    .timeline{margin-top:28px}
+    .step{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start;margin:14px 0}
+    .step .bullet{width:42px;height:42px;border:2px solid var(--brand);border-radius:50%;display:grid;place-items:center}
+    .step p{margin:6px 0 0;color:#c8d3ff}
+
+    /* FOOTER */
+    footer{margin-top:50px;padding:30px 0;color:#b8c6ff;border-top:1px solid rgba(255,255,255,.06)}
+    .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+    .foot small{opacity:.9}
+
+    /* RESPONSIVE */
+    @media (max-width: 960px){
+      .hero .container{grid-template-columns:1fr}
+      .ribbon .container{grid-template-columns:repeat(2,1fr)}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#">
+        <span class="brand-badge" aria-hidden="true">
+          <!-- helm keselamatan -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 13a8 8 0 0 1 16 0v2a2 2 0 0 1-2 2h-3v-4h-6v4H6a2 2 0 0 1-2-2v-2Z" fill="#0b2419"/>
+            <path d="M2 17h20" stroke="#0b2419" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>TentangK3</span>
+      </a>
+      <div class="nav-links">
+        <a href="#manfaat">Manfaat</a>
+        <a href="#materi">Materi</a>
+        <a href="#mulai">Mulai</a>
+        <a class="cta" href="#daftar">Daftar Gratis</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <svg class="orbit" width="760" height="760" viewBox="0 0 760 760" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(380 380) rotate(90) scale(380)">
+          <stop stop-color="#2ad18b" stop-opacity="0.28"/>
+          <stop offset="1" stop-color="#2ad18b" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle cx="380" cy="380" r="380" fill="url(#g)"/>
+    </svg>
+
+    <div class="container">
+      <div>
+        <div class="eyebrow">Keselamatan & Kesehatan Kerja</div>
+        <h1>Bangun Budaya <span style="color:var(--brand)">K3</span> yang Proaktif—
+          
+          aman, sehat, dan produktif</h1>
+        <p class="lead">Materi singkat, poster siap cetak, checklist inspeksi, dan alat bantu praktis untuk menerapkan K3 di tempat kerja Anda. Desain modern ala Canva, mudah dipahami oleh semua level.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#daftar">
+            <!-- icon play -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5v14l11-7L8 5Z" fill="#062015"/></svg>
+            Mulai Belajar</a>
+          <a class="btn ghost" href="#demo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#c8d3ff" stroke-width="2"/></svg>
+            Lihat Contoh Materi</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="card-stack">
+          <div class="card">
+            <span class="tag" title="APD">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 13a8 8 0 0 1 16 0v2a2 2 0 0 1-2 2h-3v-4h-6v4H6a2 2 0 0 1-2-2v-2Z" stroke="rgba(42,209,139,1)"/></svg>
+              APD Wajib
+            </span>
+            <h3>Toolkit Inspeksi APD</h3>
+            <p>Checklist digital untuk helm, sepatu, sarung tangan, kacamata, dan respirator. Ekspor ke PDF.</p>
+          </div>
+          <div class="card">
+            <span class="tag">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18v10H3z" stroke="rgba(255,176,32,1)"/><path d="M7 7v10M17 7v10" stroke="rgba(255,176,32,1)"/></svg>
+              Poster
+            </span>
+            <h3>Poster Bahaya & Rambu</h3>
+            <p>Template visual siap cetak: larangan, wajib, peringatan, keadaan darurat—tinggal ganti logo.</p>
+          </div>
+          <div class="card">
+            <span class="tag">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke="rgba(255,91,91,1)" stroke-width="2"/></svg>
+              Tanggap Darurat
+            </span>
+            <h3>Rencana Evakuasi</h3>
+            <p>Panduan jalur evakuasi, titik kumpul, dan simulasi kebakaran berbasis standar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- RIBBON STATS -->
+  <section class="ribbon" role="region" aria-label="Ringkasan dampak">
+    <div class="container">
+      <div class="stat"><span class="dot" aria-hidden="true"></span><div><strong>+120</strong><div>Template K3</div></div></div>
+      <div class="stat"><span class="dot" aria-hidden="true" style="background:var(--accent)"></span><div><strong>95%</strong><div>Tingkat Kepuasan</div></div></div>
+      <div class="stat"><span class="dot" aria-hidden="true" style="background:#68afff"></span><div><strong>50%</strong><div>Waktu Pelatihan Lebih Singkat</div></div></div>
+      <div class="stat"><span class="dot" aria-hidden="true" style="background:var(--danger)"></span><div><strong>0</strong><div>Insiden Saat Pelatihan</div></div></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <main class="container" id="manfaat">
+    <h2 style="font-size:28px;margin:28px 0 10px">Manfaat Utama</h2>
+    <div class="grid">
+      <article class="feature">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="#2ad18b"/><path d="M4 12h16" stroke="#2ad18b"/><path d="M9 7v10M15 7v10" stroke="#2ad18b"/></svg>
+        </div>
+        <h4>Desain seperti Canva</h4>
+        <p>Layout bersih, tipografi modern, dan komponen visual yang konsisten untuk komunikasi K3 yang mudah dipahami.</p>
+      </article>
+      <article class="feature">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-8" stroke="#2ad18b" stroke-width="2"/></svg>
+        </div>
+        <h4>Berbasis Standar</h4>
+        <p>Materi merujuk ke praktik K3 umum, memudahkan penyesuaian terhadap kebijakan internal dan regulasi terkait.</p>
+      </article>
+      <article class="feature">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="#2ad18b"/></svg>
+        </div>
+        <h4>Siap Aksi</h4>
+        <p>Checklist, SOP singkat, dan poster dapat langsung digunakan di area kerja, mengurangi waktu implementasi.</p>
+      </article>
+    </div>
+
+    <!-- TIMELINE / HOW IT WORKS -->
+    <section class="timeline" id="mulai" aria-label="Cara mulai">
+      <h2 style="font-size:24px;margin:24px 0 6px">Cara Mulai</h2>
+      <div class="step">
+        <div class="bullet">1</div>
+        <div>
+          <strong>Buat akun gratis</strong>
+          <p>Daftar dengan email perusahaan untuk mengakses materi dasar dan contoh template.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="bullet">2</div>
+        <div>
+          <strong>Pilih template</strong>
+          <p>Sesuaikan warna, logo, dan bahasa agar sesuai dengan budaya dan kebutuhan lokasi kerja.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="bullet">3</div>
+        <div>
+          <strong>Bagikan & pasang</strong>
+          <p>Unduh sebagai PDF/PNG untuk ditempel di area kerja, atau bagikan digital untuk pelatihan onboarding.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section id="daftar" style="margin-top:30px">
+      <div class="feature" style="display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:center">
+        <div>
+          <h3 style="margin:0 0 6px;font-size:24px">Mulai gratis hari ini</h3>
+          <p class="lead">Akses 10+ template K3, panduan inspeksi, dan poster penting. Upgrade kapan saja.</p>
+          <form onsubmit="event.preventDefault(); this.parentElement.innerHTML='<p><strong>Terima kasih!</strong> Periksa email Anda untuk langkah berikutnya.</p>'" style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <input type="email" placeholder="Email kerja" required aria-label="Email" style="flex:1;min-width:220px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:#0e162b;color:var(--text)">
+            <button class="btn primary" type="submit">Daftar</button>
+          </form>
+        </div>
+        <div style="justify-self:end">
+          <div class="card" aria-hidden="true">
+            <h3 style="display:flex;align-items:center;gap:8px;margin:0 0 6px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-8" stroke="#2ad18b" stroke-width="2"/></svg>
+              Termasuk Paket Gratis
+            </h3>
+            <ul style="margin:0;padding-left:18px;color:#c8d3ff;line-height:1.8">
+              <li>10 Template Poster K3</li>
+              <li>Checklist Inspeksi APD</li>
+              <li>Template SOP 1 Halaman</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container foot">
+      <div class="brand" aria-label="Identitas situs">
+        <span class="brand-badge" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 13a8 8 0 0 1 16 0v2a2 2 0 0 1-2 2h-3v-4h-6v4H6a2 2 0 0 1-2-2v-2Z" fill="#0b2419"/>
+            <path d="M2 17h20" stroke="#0b2419" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>TentangK3</span>
+      </div>
+      <small>© <span id="y"></span> TentangK3. Edukasi K3 untuk semua.</small>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a href="#" style="opacity:.9">Kebijakan</a>
+        <span style="opacity:.3">•</span>
+        <a href="#" style="opacity:.9">Kontak</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // tahun berjalan
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
